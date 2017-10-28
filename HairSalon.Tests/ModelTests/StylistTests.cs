@@ -20,7 +20,7 @@ namespace HairSalon.Tests
         }
 
        [TestMethod]
-       public void GetAll_StylistsEmptyAtFirst_0()
+       public void GetAll_DatabaseEmptyAtFirst_0()
        {
          //Arrange, Act
          int result = Stylist.GetAll().Count;
@@ -30,13 +30,13 @@ namespace HairSalon.Tests
        }
 
        [TestMethod]
-       public void Save_SavesStylistToDatabase_StylistList()
+       public void Save_SavesToDatabase_StylistList()
        {
          //Arrange
          Stylist testStylist = new Stylist("Anna");
-         testStylist.Save();
 
          //Act
+         testStylist.Save();
          List<Stylist> result = Stylist.GetAll();
          List<Stylist> testList = new List<Stylist>{testStylist};
 
@@ -60,9 +60,9 @@ namespace HairSalon.Tests
      {
        //Arrange
        Stylist testStylist = new Stylist("Anna");
-       testStylist.Save();
 
        //Act
+       testStylist.Save();
        Stylist savedStylist = Stylist.GetAll()[0];
 
        int result = savedStylist.GetId();
@@ -85,24 +85,26 @@ namespace HairSalon.Tests
       //Assert
       Assert.AreEqual(testStylist, foundStylist);
     }
-    //
-    // [TestMethod]
-    // public void GetClients_RetrievesAllClientsWithStylist_ClientList()
-    // {
-    //   Stylist testStylist = new Stylist("Anna");
-    //   testStylist.Save();
-    //
-    //   Client firstClient = new Client("Anna", testStylist.GetId());
-    //   firstClient.Save();
-    //   Client secondClient = new Client("Japanese", testStylist.GetId());
-    //   secondClient.Save();
-    //
-    //
-    //   List<Client> testClientList = new List<Client> {firstClient, secondClient};
-    //   List<Client> resultClientList = testStylist.GetClients();
-    //
-    //   CollectionAssert.AreEqual(testClientList, resultClientList);
-    // }
+
+    [TestMethod]
+    public void GetClients_RetrievesAllClientsWithStylist_ClientList()
+    {
+      //Arrange
+      Stylist testStylist = new Stylist("Anna");
+      testStylist.Save();
+
+      Client firstClient = new Client("Sanna", testStylist.GetId());
+      firstClient.Save();
+      Client secondClient = new Client("Rema", testStylist.GetId());
+      secondClient.Save();
+
+      //Act
+      List<Client> testClientList = new List<Client> {firstClient, secondClient};
+      List<Client> resultClientList = testStylist.GetClients();
+
+      //Assert
+      CollectionAssert.AreEqual(testClientList, resultClientList);
+    }
 
   }
 }
