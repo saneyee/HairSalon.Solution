@@ -29,6 +29,21 @@ namespace HairSalon.Tests
          Assert.AreEqual(0, result);
        }
 
+       [TestMethod]
+       public void Save_SavesStylistToDatabase_StylistList()
+       {
+         //Arrange
+         Stylist testStylist = new Stylist("Anna");
+         testStylist.Save();
+
+         //Act
+         List<Stylist> result = Stylist.GetAll();
+         List<Stylist> testList = new List<Stylist>{testStylist};
+
+         //Assert
+         CollectionAssert.AreEqual(testList, result);
+       }
+
       [TestMethod]
       public void Equals_ReturnsTrueForSameName_Stylist()
       {
@@ -40,40 +55,24 @@ namespace HairSalon.Tests
         Assert.AreEqual(firstStylist, secondStylist);
       }
 
-      [TestMethod]
-      public void Save_SavesStylistToDatabase_StylistList()
-      {
-        //Arrange
-        Stylist testStylist = new Stylist("Anna");
-        testStylist.Save();
+     [TestMethod]
+     public void Save_DatabaseAssignsIdToStylist_Id()
+     {
+       //Arrange
+       Stylist testStylist = new Stylist("Anna");
+       testStylist.Save();
 
-        //Act
-        List<Stylist> result = Stylist.GetAll();
-        List<Stylist> testList = new List<Stylist>{testStylist};
+       //Act
+       Stylist savedStylist = Stylist.GetAll()[0];
 
-        //Assert
-        CollectionAssert.AreEqual(testList, result);
-      }
+       int result = savedStylist.GetId();
+       int testId = testStylist.GetId();
 
-    //
-    //  [TestMethod]
-    //  public void Save_DatabaseAssignsIdToStylist_Id()
-    //  {
-    //    //Arrange
-    //    Stylist testStylist = new Stylist("Anna");
-    //    testStylist.Save();
-    //
-    //    //Act
-    //    Stylist savedStylist = Stylist.GetAll()[0];
-    //
-    //    int result = savedStylist.GetId();
-    //    int testId = testStylist.GetId();
-    //
-    //    //Assert
-    //    Assert.AreEqual(testId, result);
-    // }
-    //
-    //
+       //Assert
+       Assert.AreEqual(testId, result);
+    }
+
+
     // [TestMethod]
     // public void Find_FindsStylistInDatabase_Stylist()
     // {
