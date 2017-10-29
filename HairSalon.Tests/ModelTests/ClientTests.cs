@@ -76,7 +76,7 @@ namespace HairSalon.Tests
     public void Find_FindsClientInDatabase_Client()
     {
       //Arrange
-      Client testClient = new Client("Taco Bell",1);
+      Client testClient = new Client("Belle",1);
       testClient.Save();
 
       //Act
@@ -85,31 +85,31 @@ namespace HairSalon.Tests
       //Assert
       Assert.AreEqual(testClient, foundClient);
     }
-    
-    // [TestMethod]
-    // public void Update_UpdatesClientInDatabase_String()
-    // {
-    //   //Arrange
-    //   string restaurantName = "Japonessa";
-    //   Client testClient = new Client(restaurantName, 1);
-    //   testClient.Save();
-    //   string newClientName = "Taco Bell";
-    //
-    //   //Act
-    //   testClient.UpdateClientName(newClientName);
-    //
-    //   string result = Client.Find(testClient.GetId()).GetClientName();
-    //
-    //   //Assert
-    //   Assert.AreEqual(newClientName, result);
-    // }
-    //
+
+    [TestMethod]
+    public void Update_UpdatesClientInDatabase_String()
+    {
+      //Arrange
+      string clientName = "nessa";
+      Client testClient = new Client(clientName, 1);
+      testClient.Save();
+      string newClientName = "Bellisa";
+
+      //Act
+      testClient.UpdateClientName(newClientName);
+
+      string result = Client.Find(testClient.GetId()).GetClientName();
+
+      //Assert
+      Assert.AreEqual(newClientName, result);
+    }
+
     // [TestMethod]
     // public void DeleteClient_DeleteClientInDatabase_Null()
     // {
     //   //Arrange
-    //   string restaurantName = "Taco Bell";
-    //   Client testClient = new Client(restaurantName, 1);
+    //   string clientName = "Taco Bell";
+    //   Client testClient = new Client(clientName, 1);
     //   testClient.Save();
     //   // string deletedClient = "";
     //
