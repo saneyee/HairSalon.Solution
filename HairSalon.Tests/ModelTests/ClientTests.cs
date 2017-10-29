@@ -29,17 +29,17 @@ namespace HairSalon.Tests
       Assert.AreEqual(0, result);
     }
 
-    // [TestMethod]
-    // public void Equals_OverrideTrueIfClientsAreTheSame_Client()
-    // {
-    //   // Arrange, Act
-    //   Client firstClient = new Client("Taco Bell",1);
-    //   Client secondClient = new Client("Taco Bell",1);
-    //
-    //   // Assert
-    //   Assert.AreEqual(firstClient, secondClient);
-    // }
-    //
+    [TestMethod]
+    public void Equals_OverrideTrueIfClientsAreTheSame_Client()
+    {
+      // Arrange, Act
+      Client firstClient = new Client("Becky",1);
+      Client secondClient = new Client("Becky",1);
+
+      // Assert
+      Assert.AreEqual(firstClient, secondClient);
+    }
+
     // [TestMethod]
     // public void Save_SavesToDatabase_ClientList()
     // {
