@@ -104,22 +104,22 @@ namespace HairSalon.Tests
       Assert.AreEqual(newClientName, result);
     }
 
-    // [TestMethod]
-    // public void DeleteClient_DeleteClientInDatabase_Null()
-    // {
-    //   //Arrange
-    //   string clientName = "Taco Bell";
-    //   Client testClient = new Client(clientName, 1);
-    //   testClient.Save();
-    //   // string deletedClient = "";
-    //
-    //   //Act
-    //   testClient.DeleteClient();
-    //   int result = Client.GetAll().Count;
-    //
-    //   //Assert
-    //   Assert.AreEqual(0, result);
-    //
-    // }
+    [TestMethod]
+    public void DeleteClient_DeleteClientInDatabase_Null()
+    {
+      //Arrange
+      string clientName = "Tabella";
+      Client testClient = new Client(clientName, 1);
+      testClient.Save();
+      // string deletedClient = "";
+
+      //Act
+      testClient.DeleteClient();
+      int result = Client.GetAll().Count;
+
+      //Assert
+      Assert.AreEqual(0, result);
+
+    }
   }
 }
