@@ -55,23 +55,23 @@ namespace HairSalon.Tests
       CollectionAssert.AreEqual(testList, result);
     }
 
-    // [TestMethod]
-    // public void Save_AssignsIdToObject_Id()
-    // {
-    //   //Arrange
-    //   Client testClient = new Client("Taco Bell",1);
-    //
-    //   //Act
-    //   testClient.Save();
-    //   Client savedClient = Client.GetAll()[0];
-    //
-    //   int result = savedClient.GetId();
-    //   int testId = testClient.GetId();
-    //
-    //   //Assert
-    //   Assert.AreEqual(testId, result);
-    // }
-    //
+    [TestMethod]
+    public void Save_AssignsIdToObject_Id()
+    {
+      //Arrange
+      Client testClient = new Client("Bell",1);
+
+      //Act
+      testClient.Save();
+      Client savedClient = Client.GetAll()[0];
+
+      int result = savedClient.GetId();
+      int testId = testClient.GetId();
+
+      //Assert
+      Assert.AreEqual(testId, result);
+    }
+
     // [TestMethod]
     // public void Find_FindsClientInDatabase_Client()
     // {
