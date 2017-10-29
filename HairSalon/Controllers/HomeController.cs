@@ -13,8 +13,15 @@ namespace HairSalon.Controllers
             return View();
         }
 
-
+        [HttpGet("/stylists/form")]
+        public ActionResult AddStylistForm()
+        {
+            return View();
+        }
         
+
+
+
 
 
 
