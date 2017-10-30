@@ -54,20 +54,30 @@ namespace HairSalon.Controllers
             return View(selectedStylist);
         }
 
-    //     [HttpPost("/clients")]
-    //     public ActionResult AddClient()
-    //     {
-    //         string clientName = Request.Form["client-description"];
-    //         int catId = int.Parse(Request.Form["category-id"]);
-    //         Client newClient = new Client(clientDescription,(Request.Form["dueDate"]), catId);
-    //         newClient.Save();
-    //         Dictionary<string, object> model = new Dictionary<string, object>();
-    //         Category selectedCategory = Category.Find(catId);
-    //         List<Client> categoryClients = selectedCategory.GetClients();
-    //         model.Add("clients", categoryClients);
-    //         model.Add("category", selectedCategory);
-    //         return View("CategoryDetail", model);
-      //
+        [HttpPost("/stylists/{id}/clientlist")]
+        public ActionResult AddEachClient(int id)
+        {
+            Client newClient = new Client(Request.Form["client-name"], id);
+            newClient.Save();
+            Dictionary<string, object> model = new Dictionary<string, object>();
+            Stylist selectedStylist = Stylist.Find(id); //Stylist is selected as an object
+            List<Client> allClients = selectedStylist.GetClients();
+            model.Add("stylist", selectedStylist);
+            model.Add("clients", allClients);
+            return View("StylistDetail", model);
+        }
+
+        [HttpGet("/stylists/{id}/clientlist")]
+        public ActionResult ViewClientList(int id)
+        {
+            Dictionary<string, object> model = new Dictionary<string, object>();
+            Stylist selectedStylist = Stylist.Find(id); //Stylist is selected as an object
+            List<Client> allClients = selectedStylist.GetClients();
+            model.Add("stylist", selectedStylist);
+            model.Add("clients", allClients);
+            return View("StylistDetail", model);
+        }
+
     //   [HttpGet("/stylists/{id}/clients/new")]
     //   public ActionResult AddClient(int id)
     //   {

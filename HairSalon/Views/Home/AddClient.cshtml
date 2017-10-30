@@ -7,13 +7,13 @@
   <div class="container">
     <h1>Add Client for @Model.GetName()</h1>
 
-    <form action="/@Model.GetName()/@Model.GetId()/clientlist" method="post">
+    <form action="/stylists/@Model.GetId()/clientlist" method="post">
       <label for="client-name">New Client</label><br>
       <input type="text" name="client-name">
       <button type="submit" name="button">Add Client</button>
     </form>
-
-    <a href="/@Model.GetName()/@Model.GetId()/clientlist">View Client List</a><br>
+    <br>
+    <a href="/stylists/@Model.GetId()/clientlist">View Client List</a><br>
     <a href="/">HomePage</a>
   </div>
 </body>
