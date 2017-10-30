@@ -5,12 +5,12 @@
 
 <body>
   <div class="container">
-    <h1>Add Client for @Model.GetClientName()</h1>
+    <h1>Add Client for @Model.GetName()</h1>
 
     <form action="/@Model.GetName()/@Model.GetId()/clientlist" method="post">
       <label for="client-name">New Client</label><br>
-      <input type="text" name="client-name" class="form-control">
-      <button type="submit" name="button" class="btn btn-default">Add Client</button>
+      <input type="text" name="client-name">
+      <button type="submit" name="button">Add Client</button>
     </form>
 
     <a href="/@Model.GetName()/@Model.GetId()/clientlist">View Client List</a><br>
