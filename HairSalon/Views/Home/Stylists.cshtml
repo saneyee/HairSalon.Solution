@@ -9,10 +9,12 @@
         {
           <h3>No Stylists have been added yet!</h3>
         }
-        @foreach (var stylist in Model)
-        {
-          <h3>@stylist.GetId() || <a href='/stylists/@stylist.GetId()'>@stylist.GetName()</a></h3>
-        }
+        <ol>
+            @foreach (var stylist in Model)
+            {
+              <li><a href='/stylists/@stylist.GetId()'>@stylist.GetName()</a></li>
+            }
+        </ol>
         <p><a href='/'>Back Home</a></p>
     </div>
 </body>
