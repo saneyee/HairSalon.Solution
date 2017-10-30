@@ -5,7 +5,7 @@
 
 _A simple HairSalon website that allows the user to add the employees(stylists) and under each stylist, he can add the number clients for that particular stylist, can edit and delete them._
 
-## Specs_
+## Specs
 
 * _Creating a Homepage named HairSalon where an employee can add a Stylist, view all stylists._
 * _Allow the user to add a Stylist using a form._
