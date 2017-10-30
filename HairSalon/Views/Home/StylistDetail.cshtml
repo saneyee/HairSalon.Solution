@@ -5,10 +5,11 @@ Layout = "_Layout";
 <body>
     <div class="container">
         <h3>Here are all the clients of @Model["stylist"].GetName()</h3>
+        <hr>
         <ol>
         @foreach (var client in @Model["clients"])
         {
-          <li>@client.GetClientName()</li>
+          <li>@client.GetClientName() || <a href="/clients/@client.GetId()/edit">Edit</a></li>
         }
         </ol>
         <p><a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></p>

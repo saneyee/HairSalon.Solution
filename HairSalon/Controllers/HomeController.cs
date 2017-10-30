@@ -60,7 +60,7 @@ namespace HairSalon.Controllers
             Client newClient = new Client(Request.Form["client-name"], id);
             newClient.Save();
             Dictionary<string, object> model = new Dictionary<string, object>();
-            Stylist selectedStylist = Stylist.Find(id); //Stylist is selected as an object
+            Stylist selectedStylist = Stylist.Find(id);
             List<Client> allClients = selectedStylist.GetClients();
             model.Add("stylist", selectedStylist);
             model.Add("clients", allClients);
@@ -71,12 +71,29 @@ namespace HairSalon.Controllers
         public ActionResult ViewClientList(int id)
         {
             Dictionary<string, object> model = new Dictionary<string, object>();
-            Stylist selectedStylist = Stylist.Find(id); //Stylist is selected as an object
+            Stylist selectedStylist = Stylist.Find(id);
             List<Client> allClients = selectedStylist.GetClients();
             model.Add("stylist", selectedStylist);
             model.Add("clients", allClients);
             return View("StylistDetail", model);
         }
+
+        [HttpGet("/clients/{id}/edit")]
+        public ActionResult EditClientName(int id)
+        {
+            Client thisClient = Client.Find(id);
+            return View(thisClient);
+        }
+
+        [HttpPost("/clients/{id}/edit")]
+        public ActionResult EditedClientName(int id)
+        {
+            Client thisClient = Client.Find(id);
+            thisClient.UpdateClientName(Request.Form["new-name"]);
+            return RedirectToAction("Index");
+        }
+
+
 
     //   [HttpGet("/stylists/{id}/clients/new")]
     //   public ActionResult AddClient(int id)
