@@ -1,4 +1,4 @@
-#Hair Salon
+#_Hair Salon_
 
 
 ##Description
@@ -8,9 +8,9 @@ _A simple HairSalon website that allows the user to add the employees(stylists) 
 ##Specs
 
 _Creating a Homepage named HairSalon where an employee can add a Stylist, view all stylists.
-Allow the user to add a Stylist using a form.
-Once Stylist is added clients can be added to it.
-Clients can be updated and deleted.
+_Allow the user to add a Stylist using a form.
+_Once Stylist is added clients can be added to it.
+_Clients can be updated and deleted.
 
 ## Built With
 
@@ -20,18 +20,18 @@ Clients can be updated and deleted.
 
 ##Technologies Used
 
-_HTML
-CSS
-C#
-.Net Framework
-MVC
-Php
-SQL
+* _HTML_
+* _CSS_
+* _C#_
+* _.Net Framework_
+* _MVC_
+* _Php_
+* _SQL_
 
-CREATE DATABASE saneyee_sarkar;
-USE saneyee_sarkar;
-CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR(255));
-CREATE TABLE clients (id serial PRIMARY KEY, client_name VARCHAR(255), stylist_id INT)
+* CREATE DATABASE saneyee_sarkar;
+* USE saneyee_sarkar;
+* CREATE TABLE stylists (id serial PRIMARY KEY, name   VARCHAR(255));
+* CREATE TABLE clients (id serial PRIMARY KEY, client_name VARCHAR(255), stylist_id INT)
 
 ###License
 
